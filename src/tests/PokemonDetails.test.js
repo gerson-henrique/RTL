@@ -23,12 +23,14 @@ describe('Teste se existe na página uma seção com os mapas', () => {
   it('Na seção de detalhes deverá existir um heading h2', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/pokemons/25');
+    const pokemonFav = screen.getByText('Pokémon favoritado?');
     const gameLoc = screen.getByRole('heading', {
       name: 'Game Locations of Pikachu', level: 2 });
     const pikaLoc = screen.getAllByRole('img', {
       name: 'Pikachu location' });
     const PikaLocNameI = screen.getByText('Kanto Viridian Forest');
     const PikaLocNameII = screen.getByText('Kanto Power Plant');
+    expect(pokemonFav).toBeInTheDocument();
     expect(gameLoc).toBeInTheDocument();
     expect(pikaLoc).toHaveLength(2);
     expect(pikaLoc[0]).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/0/08/Kanto_Route_2_Map.png');
