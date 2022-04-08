@@ -8,7 +8,6 @@ import {
 } from 'prop-types';
 
 export const isPokemonFavoriteByIdType = objectOf(bool);
-
 export const pokemonType = shape({
   averageWeight: shape({
     measurementUnit: string,
